@@ -1,0 +1,15 @@
+#for page not found
+ErrorDocument 404 /api-3/404.php
+ErrorDocument 403 /api-3/403.php
+
+#Prevent directory listing in all  of my folder
+
+IndexIgnore *
+Options -Indexes
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php?/$1 [L]
